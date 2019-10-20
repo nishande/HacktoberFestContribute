@@ -1,18 +1,33 @@
-#include <bits/stdc++.h>
-
-int main() {
-  std::string s;
-  std::cin >> s;
-  std::cout << "Normal: " << s << std::endl;
-  std::stack<char> st;
-  for(char c : s) {
-    st.push(c);
-  }
-  s = "";
-  while(!st.empty()) {
-    s += st.top();
-    st.pop();
-  }
-  std::cout << "Reversed: " << s << std::endl;
-  return 0;
+#include<iostream.h>
+#include<string.h>
+#include<stack>			//Use Standard template library to create Stack data structure 
+using namespace std;
+ 
+void Reverse(char *p);
+ 
+int main()
+{
+	char string[] = "www.firmcodes.com";
+	
+	Reverse(string);
+	
+	printf(" %s",string);	
+	
+	return 0;
+}
+ 
+void Reverse(char *p)
+{
+	stack<char> S;
+	
+	/* Pushing to stack */
+	for(int i=0; i<strlen(p); i++)		
+				S.push(p[i]);
+	
+	/* Poping from stack */			
+	for(int i=0; i<strlen(p); i++)
+	{
+		p[i] = S.top();
+		S.pop();
+	}
 }
